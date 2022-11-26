@@ -1,3 +1,3 @@
-const xy = require('./people');
+const {people , ages} = require('./people');
 
-console.log(xy.people,xy.ages);
+console.log(people,ages);
