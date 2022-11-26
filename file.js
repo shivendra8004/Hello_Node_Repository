@@ -1,19 +1,12 @@
 const fs = require("fs"); // Fs stands for file system
 
-// Directories
-if (!fs.existsSync("./assets")) {
-  fs.mkdir("./assets", (err) => {
-    if (err) {
-      console.log("Error");
+
+if(fs.existsSync("./docs/blog2.txt")){
+  fs.unlink("./docs/blog2.txt",(err)=>{
+    if(err){
+    console.log("Error");
     }
-    console.log("Folder Created");
-  });
-} else {
-  fs.rmdir("./assets", (err) => {
-    if (err) {
-      console.log("Error");
-    }
-    console.log("Folder deleted");
+    console.log("Removed File");
   });
 }
 
