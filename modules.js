@@ -1,3 +1,3 @@
 const xy = require('./people');
 
-console.log(xy);
+console.log(xy.people,xy.ages);
