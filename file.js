@@ -1,20 +1,12 @@
 const fs = require('fs'); // Fs stands for file system
-
-// Reading Files
-fs.readFile('./docs/blog1.txt',(err,data)=>{
-    if(err){
-        console.log("Oops, There is a Error");
-    }
-    console.log(data.toString());
+// Writing Files
+fs.writeFile('./docs/blog1.txt','Please Subscribe to my channel',()=>{
+    console.log("File written");
 });
 
-console.log("Last Line");
-// setTimeout(()=>{
-//     console.log("Last Line");
-// },1000);
-// Writing Files
-
-
+fs.writeFile('./docs/blog2.txt','Please like my Videos',()=>{
+    console.log("File 2 written");
+});
 
 
 // Directories
