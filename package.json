@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SHIVENDRA8004/Hello_Node_Repository/issues"
   },
-  "homepage": "https://github.com/SHIVENDRA8004/Hello_Node_Repository#readme"
+  "homepage": "https://github.com/SHIVENDRA8004/Hello_Node_Repository#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
