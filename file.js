@@ -44,21 +44,21 @@ const { isBuffer } = require("lodash");
 //     console.log("Folder Deleted Successfully");
 //   });
 // }
-//  Deleting Files
+// //  Deleting Files
 
-if (fs.existsSync("./views/test.txt")) {
-  fs.rm("./views/test.txt", (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("File Deleted");
-  });
-} else {
-  //   console.log("File does not exists");
-  fs.writeFile("./views/test.txt", "hello guys", (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("File Created");
-  });
-}
+// if (fs.existsSync("./views/test.txt")) {
+//   fs.rm("./views/test.txt", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("File Deleted");
+//   });
+// } else {
+//   //   console.log("File does not exists");
+//   fs.writeFile("./views/test.txt", "hello guys", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("File Created");
+//   });
+// }
