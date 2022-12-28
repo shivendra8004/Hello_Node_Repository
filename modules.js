@@ -1,7 +1,3 @@
-const {name} = require("./test");
+const os  = require("os");
 
-console.log(name)
-// console.log(test.name);
-// console.log(test.Enr);
-// console.log(test.batch);
-// console.log(test.collage);
+console.log(os.platform(),os.homedir());
