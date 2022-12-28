@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { isBuffer } = require("lodash");
 
 // Reading Files
 
@@ -13,9 +14,51 @@ const fs = require("fs");
 
 // Writing the Files
 
-fs.writeFile("./views/test.txt", "Hello Shiva", (err) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log("File Written Successfully");
-});
+// fs.writeFile("./views/test.txt", "Hello Shiva", (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log("File Written Successfully");
+// });
+
+// Playing With Directories
+// fs.mkdir("./testfolder", (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log("File Created Successfully");
+// });
+
+// if (!fs.existsSync("./testfolder")) {
+//   fs.mkdir("./testfolder", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("File Created Successfully");
+//   });
+// } else {
+//   fs.rmdir("./testfolder", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("Folder Deleted Successfully");
+//   });
+// }
+//  Deleting Files
+
+if (fs.existsSync("./views/test.txt")) {
+  fs.rm("./views/test.txt", (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("File Deleted");
+  });
+} else {
+  //   console.log("File does not exists");
+  fs.writeFile("./views/test.txt", "hello guys", (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("File Created");
+  });
+}
