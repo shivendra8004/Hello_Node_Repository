@@ -7,15 +7,19 @@ const server = http.createServer((req, res) => {
   switch (req.url) {
     case "/":
       path = path + "index.html";
+      res.statusCode = 200;
       break;
     case "/about":
       path = path + "about.html";
+      res.statusCode = 200;
       break;
     case "/help":
       path = path + "help.html";
+      res.statusCode = 200;
       break;
-    default:
+    default: //Status code are the code that is send by the server to the browser to tell that weather the request is full filled or not
       path = path + "404.html";
+      res.statusCode = 404;
       break;
   }
 
