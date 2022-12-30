@@ -1,9 +1,8 @@
-const name = "shiv";
-console.log(name);
+const http = require("http");
+const server = http.createServer((req, res) => {
+  console.log("Request Made");
+});
 
-greet(name);
-
-
-function greet( name){
-    console.log(`Hello, ${name}`);
-};
+server.listen(3000, "localhost", () => {
+  console.log("Listening on port no. 3000");
+});
