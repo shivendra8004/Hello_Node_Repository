@@ -28,7 +28,6 @@ const server = http.createServer((req, res) => {
       res.write(err);
       res.end();
     } else {
-      console.log("On the " + path + " Page");
       res.write(data);
       res.end();
     }
