@@ -15,9 +15,9 @@ const server = http.createServer((req, res) => {
       break;
     case "/help":
       path = path + "help.html";
-      res.statusCode = 200;
+      res.statusCode = 200; //Status code are the code that is send by the server to the browser to tell that weather the request is full filled or not
       break;
-    default: //Status code are the code that is send by the server to the browser to tell that weather the request is full filled or not
+    default:
       path = path + "404.html";
       res.statusCode = 404;
       break;
