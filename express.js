@@ -22,3 +22,6 @@ app.get("/help", (req, res) => {
 app.get("/help-me", (req, res) => {
   res.redirect("./help");
 });
+app.use((req, res) => {
+  res.sendFile("./views/404.html", { root: __dirname });
+});
