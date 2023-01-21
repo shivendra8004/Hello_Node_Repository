@@ -17,14 +17,14 @@ app.get("/blogs", (req, res) => {
   res.redirect("/");
 });
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", { title: "About Us" });
   // res.sendFile("./views/about.html", { root: __dirname });
 });
 app.get("/blogs/create", (req, res) => {
-  res.render("newblog");
+  res.render("newblog", { title: "Create Blog" });
   // res.sendFile("./views/about.html", { root: __dirname });
 });
 app.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", { title: "Error 404" });
   // res.status(404).sendFile("./views/404.html", { root: __dirname });
 });
