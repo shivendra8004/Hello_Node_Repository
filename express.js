@@ -25,6 +25,6 @@ app.get("/blogs/create", (req, res) => {
   // res.sendFile("./views/about.html", { root: __dirname });
 });
 app.use((req, res) => {
-  res.render("404");
+  res.status(404).render("404");
   // res.status(404).sendFile("./views/404.html", { root: __dirname });
 });
