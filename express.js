@@ -7,7 +7,8 @@ app.listen(3000, () => {
   console.log("Server Started");
 });
 app.get("/", (req, res) => {
-  res.sendFile("./views/index.html", { root: __dirname });
+  res.render("index");
+  // res.sendFile("./views/index.html", { root: __dirname });
 });
 app.get("/home", (req, res) => {
   res.redirect("/");
