@@ -7,7 +7,21 @@ app.listen(3000, () => {
   console.log("Server Started");
 });
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home" });
+  const blogs = [
+    {
+      title: "Web Development",
+      snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    },
+    {
+      title: "Food Making Recipie",
+      snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    },
+    {
+      title: "Calculation Problems",
+      snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    },
+  ];
+  res.render("index", { title: "Home", blogs });
   // res.sendFile("./views/index.html", { root: __dirname });
 });
 app.get("/home", (req, res) => {
