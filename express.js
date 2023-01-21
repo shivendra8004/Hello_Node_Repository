@@ -13,9 +13,18 @@ app.get("/", (req, res) => {
 app.get("/home", (req, res) => {
   res.redirect("/");
 });
+app.get("/blogs", (req, res) => {
+  res.redirect("/");
+});
 app.get("/about", (req, res) => {
-  res.sendFile("./views/about.html", { root: __dirname });
+  res.render("about");
+  // res.sendFile("./views/about.html", { root: __dirname });
+});
+app.get("/blogs/create", (req, res) => {
+  res.render("newblog");
+  // res.sendFile("./views/about.html", { root: __dirname });
 });
 app.use((req, res) => {
-  res.status(404).sendFile("./views/404.html", { root: __dirname });
+  res.render("404");
+  // res.status(404).sendFile("./views/404.html", { root: __dirname });
 });
