@@ -6,6 +6,13 @@ app.set("view engine", "ejs");
 app.listen(3000, () => {
   console.log("Server Started");
 });
+app.use((req, res) => {
+  console.log("Request Made:");
+  console.log(req.hostname);
+  console.log(req.method);
+  console.log(req.path);
+  console.log("\n");
+});
 app.get("/", (req, res) => {
   const blogs = [
     {
