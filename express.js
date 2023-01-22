@@ -10,7 +10,7 @@ app.listen(3000, () => {
   console.log("Server Started");
 });
 
-app.use(morgan("dev"));
+app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
   const blogs = [
