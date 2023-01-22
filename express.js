@@ -14,6 +14,11 @@ app.use((req, res, next) => {
   console.log("\n");
   next();
 });
+app.use((req, res, next) => {
+  console.log("In next Middleware");
+  console.log("\n");
+  next();
+});
 app.get("/", (req, res) => {
   const blogs = [
     {
