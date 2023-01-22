@@ -14,6 +14,9 @@ app.listen(3000, () => {
 // Third Party Module
 app.use(morgan("tiny"));
 
+// Middleware & Static Files
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
   const blogs = [
     {
