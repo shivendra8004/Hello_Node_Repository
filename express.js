@@ -37,6 +37,11 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Home", blogs });
   // res.sendFile("./views/index.html", { root: __dirname });
 });
+app.use((req, res, next) => {
+  console.log("In next Middleware");
+  console.log("\n");
+  next();
+});
 app.get("/home", (req, res) => {
   res.redirect("/");
 });
