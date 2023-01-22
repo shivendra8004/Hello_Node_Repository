@@ -4,12 +4,14 @@ const morgan = require("morgan");
 
 // Register View Engine
 app.set("view engine", "ejs");
-
 // app.set("views", "views");
+
+// Listen for Requests
 app.listen(3000, () => {
   console.log("Server Started");
 });
 
+// Third Party Module
 app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
