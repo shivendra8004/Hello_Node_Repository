@@ -1,6 +1,7 @@
 const express = require("express");
-const app = express();
 const morgan = require("morgan");
+const mongoose = require("mongoose");
+const app = express();
 const dbURI =
   "mongodb+srv://shiva8004:shiva8004@nodejstut.baipdd6.mongodb.net/?retryWrites=true&w=majority";
 
