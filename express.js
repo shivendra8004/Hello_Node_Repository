@@ -22,11 +22,12 @@ mongoose
 app.set("view engine", "ejs");
 // app.set("views", "views");
 
+// Middleware & Static Files
+app.use(express.static("public"));
 // Third Party Module
 app.use(morgan("tiny"));
 
-// Middleware & Static Files
-app.use(express.static("public"));
+app.get("/add-blog", (req, res) => {});
 
 app.get("/", (req, res) => {
   const blogs = [
