@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const Blog = require("./models/blog");
 const app = express();
 
 // DataBase Connection String
@@ -27,13 +28,28 @@ app.use(express.static("public"));
 // Third Party Module
 app.use(morgan("tiny"));
 
-app.get("/add-blog", (req, res) => {});
+app.get("/add-blog", (req, res) => {
+  const blog = new Blog({
+    title: "Web Development",
+    snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  });
+  blog
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 app.get("/", (req, res) => {
   const blogs = [
     {
       title: "Web Development",
       snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+      body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     },
     {
       title: "Food Making Recipie",
