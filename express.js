@@ -6,7 +6,7 @@ const app = express();
 
 // DataBase Connection String
 const dbURL =
-  "mongodb+srv://shiva8004:test@nodejstut.baipdd6.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://shiva8004:test@nodejstut.baipdd6.mongodb.net/node-tut?retryWrites=true&w=majority";
 mongoose
   .connect(dbURL)
   .then(() => {
