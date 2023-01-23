@@ -2,9 +2,16 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const app = express();
-const dbURI =
+const dbURL =
   "mongodb+srv://shiva8004:shiva8004@nodejstut.baipdd6.mongodb.net/?retryWrites=true&w=majority";
-
+mongoose
+  .connect(dbURL)
+  .then(() => {
+    console.log("Connection Done");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 // Register View Engine
 app.set("view engine", "ejs");
 // app.set("views", "views");
