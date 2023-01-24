@@ -54,6 +54,7 @@ app.get("/home", (req, res) => {
 
 app.get("/blogs", (req, res) => {
   Blog.find()
+    .sort({ createdAt: -1 })
     .then((result) => {
       res.render("index", { title: "Home", blogs: result });
     })
