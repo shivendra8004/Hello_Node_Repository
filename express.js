@@ -46,6 +46,22 @@ app.get("/", (req, res) => {
   ];
   res.render("index", { title: "Home", blogs });
 });
+app.get("/add-blog", (req, res) => {
+  const blog = new Blog({
+    title: "Bhaiaya me bhiaya sexchin bhaiya",
+    snippet: "Bhai bhosda fat gya",
+    body: "Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk",
+  });
+  blog
+    .save()
+    .then((result) => {
+      console.log("Blog Saved");
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 app.get("/home", (req, res) => {
   res.redirect("/");
