@@ -46,32 +46,6 @@ app.get("/", (req, res) => {
   ];
   res.render("index", { title: "Home", blogs });
 });
-app.get("/add-blog", (req, res) => {
-  const blog = new Blog({
-    title: "Web Development",
-    snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-  });
-  blog
-    .save()
-    .then(() => {
-      console.log("Blog Saved");
-      res.redirect("/");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-app.get("/all-blogs", (req, res) => {
-  Blog.find()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 app.get("/home", (req, res) => {
   res.redirect("/");
 });
