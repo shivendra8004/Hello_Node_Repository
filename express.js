@@ -38,10 +38,12 @@ app.get("/", (req, res) => {
     {
       title: "Food Making Recipie",
       snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+      body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     },
     {
       title: "Calculation Problems",
       snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+      body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     },
   ];
   res.render("index", { title: "Home", blogs });
