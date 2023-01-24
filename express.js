@@ -63,7 +63,7 @@ app.get("/add-blog", (req, res) => {
     });
 });
 app.get("/all-blogs", (req, res) => {
-  Blog.findById("63d0042e56dc700df9f2d81f")
+  Blog.find()
     .then((result) => {
       res.send(result);
     })
