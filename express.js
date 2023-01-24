@@ -29,31 +29,37 @@ app.use(express.static("public"));
 app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
-  const blogs = [
-    {
-      title: "Web Development",
-      snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-      body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    },
-    {
-      title: "Food Making Recipie",
-      snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-      body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    },
-    {
-      title: "Calculation Problems",
-      snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-      body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    },
-  ];
-  res.render("index", { title: "Home", blogs });
+  // const blogs = [
+  //   {
+  //     title: "Web Development",
+  //     snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  //     body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  //   },
+  //   {
+  //     title: "Food Making Recipie",
+  //     snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  //     body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  //   },
+  //   {
+  //     title: "Calculation Problems",
+  //     snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  //     body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  //   },
+  // ];
+  res.redirect("/blogs");
 });
 app.get("/home", (req, res) => {
   res.redirect("/");
 });
 
 app.get("/blogs", (req, res) => {
-  res.redirect("/");
+  Blog.find()
+    .then((result) => {
+      res.render("index", { title: "Home", blogs: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.get("/about", (req, res) => {
