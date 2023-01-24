@@ -1,7 +1,13 @@
 const express = require("express");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 const app = express();
+const dbURL =
+  "mongodb+srv://shiva8004:test@nodejstut.baipdd6.mongodb.net/NodeTut?retryWrites=true&w=majority";
 
+mongoose.connect(dbURL, () => {
+  console.log("Database Connected");
+});
 // Register View Engine
 app.set("view engine", "ejs");
 // app.set("views", "views");
@@ -11,6 +17,7 @@ app.listen(3000, () => {
 
 // Middleware & Static Files
 app.use(express.static("public"));
+
 // Third Party Module
 app.use(morgan("tiny"));
 
