@@ -48,15 +48,30 @@ app.get("/", (req, res) => {
 });
 app.get("/add-blog", (req, res) => {
   const blog = new Blog({
-    title: "Bhaiaya me bhiaya sexchin bhaiya",
-    snippet: "Bhai bhosda fat gya",
-    body: "Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk Gand faad dunga bsdk",
+    title: "Web Development",
+    snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   });
   blog
     .save()
-    .then((result) => {
+    .then(() => {
       console.log("Blog Saved");
-      res.send(result);
+      const blogs = [
+        {
+          title: "Web Development",
+          snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+          body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        },
+        {
+          title: "Food Making Recipie",
+          snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        },
+        {
+          title: "Calculation Problems",
+          snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        },
+      ];
+      res.render("index", { title: "Home", blogs });
     })
     .catch((err) => {
       console.log(err);
