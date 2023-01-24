@@ -73,7 +73,16 @@ app.post("/blogs", (req, res) => {
       console.log(err);
     });
 });
-
+app.get("/blogs/:id", (req, res) => {
+  const id = req.params.id;
+  Blog.findById(id)
+    .then((result) => {
+      res.render("detailed", { title: result.title, blogs: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 app.get("/about", (req, res) => {
   res.render("about", { title: "About Us" });
 });
