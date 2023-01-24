@@ -2,18 +2,24 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const app = express();
+mongoose.set("strictQuery", true);
 const dbURL =
   "mongodb+srv://shiva8004:test@nodejstut.baipdd6.mongodb.net/NodeTut?retryWrites=true&w=majority";
 
-mongoose.connect(dbURL, () => {
-  console.log("Database Connected");
-});
+mongoose
+  .connect(dbURL)
+  .then(() => {
+    console.log("Database Connected");
+    app.listen(3000, () => {
+      console.log("Listening Started");
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 // Register View Engine
 app.set("view engine", "ejs");
 // app.set("views", "views");
-app.listen(3000, () => {
-  console.log("Listening Started");
-});
 
 // Middleware & Static Files
 app.use(express.static("public"));
@@ -56,6 +62,7 @@ app.get("/blogs/create", (req, res) => {
   res.render("newblog", { title: "Create Blog" });
 });
 
+// Middleware for any Error This will run always
 app.use((req, res) => {
   res.status(404).render("404", { title: "Error 404" });
 });
