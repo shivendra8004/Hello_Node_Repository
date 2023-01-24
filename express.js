@@ -56,22 +56,16 @@ app.get("/add-blog", (req, res) => {
     .save()
     .then(() => {
       console.log("Blog Saved");
-      const blogs = [
-        {
-          title: "Web Development",
-          snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-          body: "lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        },
-        {
-          title: "Food Making Recipie",
-          snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        },
-        {
-          title: "Calculation Problems",
-          snippet: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        },
-      ];
-      res.render("index", { title: "Home", blogs });
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+app.get("/all-blogs", (req, res) => {
+  Blog.find()
+    .then((result) => {
+      res.send(result);
     })
     .catch((err) => {
       console.log(err);
