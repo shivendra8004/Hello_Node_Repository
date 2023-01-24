@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const Blog = require("./models/blog");
 const app = express();
 mongoose.set("strictQuery", true);
 const dbURL =
