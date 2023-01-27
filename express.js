@@ -86,6 +86,16 @@ app.get("/blogs/:id", (req, res) => {
       console.log(err);
     });
 });
+app.delete("/blogs/:id", (req, res) => {
+  const id = req.params.id;
+  Blog.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect("/blogs");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 app.get("/about", (req, res) => {
   res.render("about", { title: "About Us" });
 });
