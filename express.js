@@ -73,6 +73,9 @@ app.post("/blogs", (req, res) => {
       console.log(err);
     });
 });
+app.get("/blogs/create", (req, res) => {
+  res.render("newblog", { title: "Create Blog" });
+});
 app.get("/blogs/:id", (req, res) => {
   const id = req.params.id;
   Blog.findById(id)
@@ -85,10 +88,6 @@ app.get("/blogs/:id", (req, res) => {
 });
 app.get("/about", (req, res) => {
   res.render("about", { title: "About Us" });
-});
-
-app.get("/blogs/create", (req, res) => {
-  res.render("newblog", { title: "Create Blog" });
 });
 
 // Middleware for any Error This will run always
