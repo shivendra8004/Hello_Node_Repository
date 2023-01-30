@@ -50,7 +50,7 @@ const blog_details = (req, res) => {
       res.render("blogs/detailed", { title: result.title, blogs: result });
     })
     .catch((err) => {
-      res.render("404", { title: "Error 404" });
+      res.status(404).render("404", { title: "Error 404" });
     });
 };
 module.exports = {
