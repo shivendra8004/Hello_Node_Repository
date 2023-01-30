@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blog");
 
-router.get("/blogs", (req, res) => {
+router.get("/", (req, res) => {
   Blog.find()
     .sort({ createdAt: -1 })
     .then((result) => {
@@ -12,7 +12,7 @@ router.get("/blogs", (req, res) => {
       console.log(err);
     });
 });
-router.post("/blogs", (req, res) => {
+router.post("/", (req, res) => {
   const blog = new Blog(req.body);
   blog
     .save()
@@ -23,7 +23,7 @@ router.post("/blogs", (req, res) => {
       console.log(err);
     });
 });
-router.delete("/blogs/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const id = req.params.id;
   Blog.findByIdAndDelete(id)
     .then(() => {
@@ -33,10 +33,10 @@ router.delete("/blogs/:id", (req, res) => {
       console.log(err);
     });
 });
-router.get("/blogs/create", (req, res) => {
+router.get("/create", (req, res) => {
   res.render("newblog", { title: "Create Blog" });
 });
-router.get("/blogs/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const id = req.params.id;
   Blog.findById(id)
     .then((result) => {

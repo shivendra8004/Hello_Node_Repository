@@ -29,7 +29,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 
 // Blog Routes
-app.use(blogRoutes);
+app.use("/blogs/", blogRoutes);
+
+//Home Page Middle ware
 app.get("/", (req, res) => {
   res.redirect("/blogs");
 });
