@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const Blog = require("./models/blog");
+const blogRoutes = require("./routes/blogRoutes");
 const app = express();
 mongoose.set("strictQuery", true);
 const dbURL =
@@ -28,6 +28,8 @@ app.use(express.urlencoded({ extended: true }));
 // Third Party Module
 app.use(morgan("tiny"));
 
+// Blog Routes
+app.use(blogRoutes);
 app.get("/", (req, res) => {
   res.redirect("/blogs");
 });
